@@ -1,0 +1,26 @@
+{
+  "name": "wp",
+  "version": "0.0.0",
+  "description": "website for ic kexie",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/blackmiaool/kexie_web.git"
+  },
+  "author": "blackmiaool",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blackmiaool/kexie_web/issues"
+  },
+  "devDependencies": {
+    "less": "~2.5.3",
+    "gulp-htmlmin": "~1.1.4",
+    "gulp-mini-css": "0.0.3",
+    "gulp": "~3.9.0",
+    "gulp-jsmin": "~0.1.5",
+    "gulp-less": "~3.0.3"
+  }
+}
