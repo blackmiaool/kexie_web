@@ -1,6 +1,7 @@
 var gulp = require( 'gulp' );
 var less = require('gulp-less');
 var path = require('path');
+var livereload = require('gulp-livereload');
 //	gulpLoadPlugins = require( 'gulp-load-plugins' ),
 //	p = gulpLoadPlugins(),
 //	src = 'src/',
@@ -65,12 +66,14 @@ var path = require('path');
 //	gulp.watch( src + 'js/**/*.js', [ 'build' ] );
 //});
 gulp.task('less', function () {
-  return gulp.src('./wp-content/themes/kexie/*.less')
+  return gulp.src('./src/theme/*.less')
     .pipe(less({
       paths: [ path.join(__dirname, 'less', 'includes') ]
     }))
     .pipe(gulp.dest('./wp-content/themes/kexie/'));
 });
 gulp.task('default', function() {
+   livereload() livereload.listen({port:35729,reloadPage:"./wp-content/themes/kexie/header.php"});
 	gulp.start(["less"]);
 });
+gulp.watch('./src/theme/*', ['default']); 
