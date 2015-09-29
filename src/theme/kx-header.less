@@ -1,4 +1,5 @@
 @import "variables.less";
+@import "glyphicons.less";
 .abc {
     font-size: 10px;
     .bcd {
@@ -9,42 +10,64 @@
 #kx-header {
     z-index: 1000;
     display: inline-block;
-    
-    
     text-align: center;
     position: fixed;
     left: 0;
     right: 0;
-    @top: 15px;
+    @top: 0;
     top: @top;
-    margin: auto;   
+    margin: auto;
     font-size: 15px;
-    
+    min-width: 660px;
+    @media screen and (max-width: 600px) {
+        min-width: 100px;
+    }
     .admin-bar & {
         top: @top+32;
-        
     }
     .wrap {
-        border-radius: 5px;
         background-color: @brand-primary;
-        border: 1px solid darken(@brand-primary, 5%);
         display: inline-block;
-        &>span {            
+        width: 100%;
+        @splitter:1px solid darken(@brand-primary, 15%);
+        &>a {
             color: white;
             display: inline-block;
-            border-left: 1px solid darken(@brand-primary, 15%);
+            
+            border-left:@splitter; 
             margin: 0;
-            padding: 3px 15px;
+            padding: 3px 35px;
+            @media screen and (max-width: 600px) {
+                padding: 3px 5px;
+            }
             cursor: pointer;
         }
-        &>span:first-child{
-            border-left:none;
+        &>a.brand:nth-child(1) {
+            border-left: none;
             font-size: 18px;
-            line-height: 15px;
+            
         }
-        &>span:not(:first-child):hover{
-            background:darken(@brand-primary, 10%);
+        &>a:not(:first-child):hover {
+            background: darken(@brand-primary, 10%);
+        }
+        @media screen and (max-width:600px) {
+            &>a.brand:nth-child(1) {
+                width: 25%;
+                float: left;
+                line-height: 20px;
+            }
+            &>a.item:nth-child(2) {
+                width: 30%;
+                float: left;
+            }
+            &>a.item:nth-child(3) {
+                width: 30%;
+                float: left;
+                border-right: @splitter; 
+            }
+            &>a.item:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)) {
+                display: none;
+            }
         }
     }
-    
 }
