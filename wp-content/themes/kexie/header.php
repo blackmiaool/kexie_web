@@ -25,11 +25,9 @@
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
     <div id="kx-header">
-         <div class="brand">IC科协</div>
-         <div class="item">首页</div>
-         <div class="item">资料库</div>
-         <div class="item">留言板</div>
-         <div class="item">学长们</div>
+        <div class="wrap">
+            <span class="brand">IC科协</span><span class="item">首页</span><span class="item">资料库</span><span class="item">留言板</span><span class="item">学长们</span>
+        </div>       
     </div>
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentyfifteen' ); ?></a>
 	<div id="sidebar" class="sidebar">

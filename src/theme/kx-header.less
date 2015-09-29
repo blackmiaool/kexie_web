@@ -1,17 +1,50 @@
-.abc{
-	font-size:10px;
-	.bcd{
-	color:black;
-	}
+@import "variables.less";
+.abc {
+    font-size: 10px;
+    .bcd {
+        color: black;
+    }
 }
-#kx-header{
+
+#kx-header {
+    z-index: 1000;
+    display: inline-block;
+    
+    
     text-align: center;
     position: fixed;
     left: 0;
     right: 0;
-    margin: auto;
-    height: 50px;
-    &>div{    
+    @top: 15px;
+    top: @top;
+    margin: auto;   
+    font-size: 15px;
+    
+    .admin-bar & {
+        top: @top+32;
+        
+    }
+    .wrap {
+        border-radius: 5px;
+        background-color: @brand-primary;
+        border: 1px solid darken(@brand-primary, 5%);
         display: inline-block;
-    }   
-}        
+        &>span {            
+            color: white;
+            display: inline-block;
+            border-left: 1px solid darken(@brand-primary, 15%);
+            margin: 0;
+            padding: 3px 15px;
+            cursor: pointer;
+        }
+        &>span:first-child{
+            border-left:none;
+            font-size: 18px;
+            line-height: 15px;
+        }
+        &>span:not(:first-child):hover{
+            background:darken(@brand-primary, 10%);
+        }
+    }
+    
+}

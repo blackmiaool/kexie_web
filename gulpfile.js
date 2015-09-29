@@ -2,6 +2,20 @@ var gulp = require( 'gulp' );
 var less = require('gulp-less');
 var path = require('path');
 var livereload = require('gulp-livereload');
+gulp.task('less', function () {
+  return gulp.src('./src/theme/*.less')
+    .pipe(less({
+      paths: [ path.join(__dirname, 'less', 'includes') ]
+    }))
+    .pipe(gulp.dest('./wp-content/themes/kexie/')).pipe(livereload());
+});
+
+gulp.task('default', function() {
+    livereload.listen({reloadPage:"./wp-content/themes/kexie/header.php"});    
+	gulp.start(["less"]);
+    
+});
+gulp.watch('./src/theme/*', ['default']); 
 //	gulpLoadPlugins = require( 'gulp-load-plugins' ),
 //	p = gulpLoadPlugins(),
 //	src = 'src/',
@@ -65,15 +79,3 @@ var livereload = require('gulp-livereload');
 //	gulp.watch( src + 'css/**/*.css', [ 'build' ] );
 //	gulp.watch( src + 'js/**/*.js', [ 'build' ] );
 //});
-gulp.task('less', function () {
-  return gulp.src('./src/theme/*.less')
-    .pipe(less({
-      paths: [ path.join(__dirname, 'less', 'includes') ]
-    }))
-    .pipe(gulp.dest('./wp-content/themes/kexie/'));
-});
-gulp.task('default', function() {
-   livereload() livereload.listen({port:35729,reloadPage:"./wp-content/themes/kexie/header.php"});
-	gulp.start(["less"]);
-});
-gulp.watch('./src/theme/*', ['default']); 
