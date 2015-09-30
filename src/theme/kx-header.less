@@ -7,13 +7,12 @@
     }
 }
 body.admin-bar {
-    padding-top: 30px; 
+    //    padding-top: 30px;
 }
-.sidebar#sidebar{
-    top:0px !important;
-    position: absolute!important;
+.sidebar#sidebar {
+    //    top:0px !important;
+    //    position: absolute!important;
 }
-    
 #kx-header {
     z-index: 1000;
     display: inline-block;
@@ -21,66 +20,111 @@ body.admin-bar {
     position: fixed;
     left: 0;
     right: 0;
-    @top: 0px; 
+    @top: 0px;
     top: @top;
     margin: auto;
     font-size: 15px;
     min-width: 660px;
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: @screen-mb-max) {
         min-width: 100px;
+        position: static;
+        width: 100%;
     }
     & {
         top: @top+32;
     }
-    @media screen and (max-width: 782px){
+    @media screen and (max-width: @screen-mb-max) {
         .admin-bar & {
-        top: @top+46;
-    }
+            top: @top+46;
+            margin-top: 5px;
+        }
     }
     .wrap {
         background-color: @brand-primary;
         display: inline-block;
         width: 100%;
-        @splitter:1px solid darken(@brand-primary, 15%);
-        &>a {
-            color: white;
-            display: inline-block;
-            
-            border-left:@splitter; 
-            margin: 0;
-            padding: 3px 35px;
-            @media screen and (max-width: 782px) {
-                padding: 3px 5px;
+        @splitter: 1px solid darken(@brand-primary, 15%);
+        &>ul {
+            overflow: auto;
+            margin: 0px;
+            &>li>a{
+                color:white;
             }
-            cursor: pointer;
-        }
-        &>a.brand:nth-child(1) {
-            border-left: none;
-            font-size: 18px;
-            line-height: 18px;
-            
-        }
-        &>a:not(:first-child):hover {
-            background: darken(@brand-primary, 10%);
-        }
-        @media screen and (max-width:782px) {
-            &>a.brand:nth-child(1) {
-                width: 25%;
-                float: left;
-                line-height: 20px;
+            &>li {                
+                display: inline-block;
+                border-left: @splitter;
+                margin: 0;
+                padding: 3px 35px;
+                @media screen and (max-width: @screen-mb-max) {
+                    padding: 3px 5px;
+                }
+                cursor: pointer;
             }
-            &>a.item:nth-child(2) {
-                width: 30%;
-                float: left;
+            &>li .brand {
+                border-left: none;
+                font-size: 18px;
+                line-height: 18px;
             }
-            &>a.item:nth-child(3) {
-                width: 30%;
-                float: left;
-                border-right: @splitter; 
+            &>li .item:nth-child(2) {
+                border-left: none;
             }
-            &>a.item:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)) {
-                display: none;
+            &>li:not(:first-child):hover {
+                background: darken(@brand-primary, 10%);
             }
+            @media screen and (max-width:@screen-mb-max) {
+                &>li>a{
+                color:#333;
+            }
+                &>li:not(:first-child):hover {
+                    background: white;
+                }
+                background-color: white;
+                &>li .others {
+                    & span {
+                        top: 4px;
+                    }
+                    float: left;
+                    width: 14%;
+                    display:inline-block;
+                }
+                &>li {
+                    color: #333;
+                    border-left: none;
+                    border-right: none;
+                }
+                &>li .brand:nth-child(1) {
+                    width: 30%;
+                    float: left;
+                    line-height: 20px;
+                    display: none;
+                }
+                &>li {
+                    float: left;
+                    &:nth-child(2) {
+                        width: 25%;
+                    }
+                    &:nth-child(3) {
+                        width: 30%;
+                    }
+                    &:nth-child(4) {
+                        width: 30%;
+                    }
+                }
+                &>li .item.selected {
+                    color: @brand-;
+                    border-bottom: 4px solid @brand-primary;
+                }
+                &>li:not(:nth-child(2)):not(:nth-child(3)):not(:nth-child(4)) {
+                    &:last-child {
+                        display: inline-block;
+                    }
+                    display: none;
+                }
+            }
+//            <span href="http://test.ilwt.science/" rel="home" style="font-size: 130%;"><span style="
+//    color: rgb(255,20,20);font-size:116%;font-weight: normal;
+//">IC</span>
+//  科协</span>
         }
     }
 }
