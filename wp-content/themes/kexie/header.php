@@ -26,7 +26,7 @@
 <div id="page" class="hfeed site">
     <div id="kx-header">
         <div class="wrap">
-         <a href="/" class="brand">IC科协</a><a   href="/" class="item"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;首页</a><a   href="/wiki/" class="item"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>&nbsp;&nbsp;资料库</a><a  href="/message/" class="item"><span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span>&nbsp;留言板</a><a  href="/schoolmates/" class="item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;学长们</a>
+         <a href="/" class="brand">IC科协</a><a   href="/" class="item"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;首页</a><a   href="/mediawiki/" class="item"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>&nbsp;&nbsp;资料库</a><a  href="/message/" class="item"><span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span>&nbsp;留言板</a><a  href="/schoolmates/" class="item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;学长们</a>
         </div>       
     </div>
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentyfifteen' ); ?></a>

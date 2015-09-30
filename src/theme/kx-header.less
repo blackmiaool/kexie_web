@@ -6,7 +6,14 @@
         color: black;
     }
 }
-
+body.admin-bar {
+    padding-top: 30px; 
+}
+.sidebar#sidebar{
+    top:0px !important;
+    position: absolute!important;
+}
+    
 #kx-header {
     z-index: 1000;
     display: inline-block;
@@ -14,7 +21,7 @@
     position: fixed;
     left: 0;
     right: 0;
-    @top: 0;
+    @top: 0px; 
     top: @top;
     margin: auto;
     font-size: 15px;
@@ -22,8 +29,13 @@
     @media screen and (max-width: 600px) {
         min-width: 100px;
     }
-    .admin-bar & {
+    & {
         top: @top+32;
+    }
+    @media screen and (max-width: 782px){
+        .admin-bar & {
+        top: @top+46;
+    }
     }
     .wrap {
         background-color: @brand-primary;
@@ -37,7 +49,7 @@
             border-left:@splitter; 
             margin: 0;
             padding: 3px 35px;
-            @media screen and (max-width: 600px) {
+            @media screen and (max-width: 782px) {
                 padding: 3px 5px;
             }
             cursor: pointer;
@@ -45,12 +57,13 @@
         &>a.brand:nth-child(1) {
             border-left: none;
             font-size: 18px;
+            line-height: 18px;
             
         }
         &>a:not(:first-child):hover {
             background: darken(@brand-primary, 10%);
         }
-        @media screen and (max-width:600px) {
+        @media screen and (max-width:782px) {
             &>a.brand:nth-child(1) {
                 width: 25%;
                 float: left;
