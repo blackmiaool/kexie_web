@@ -1,0 +1,10 @@
+<div id="kx-header">
+    <div class="wrap">
+        <ul>
+            <li><a href="/" class="brand">IC科协</a></li>
+            <% for(var i in list){ %>
+            <li><a href="/" class="item <%= current==list[i].text?'selected':'' %>"><span class="glyphicon <%= list[i].icon %>" aria-hidden="true"></span>&nbsp;<%= list[i].text %></a></li>
+            <% } %>
+        </ul>
+    </div>
+</div>

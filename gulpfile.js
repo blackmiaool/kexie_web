@@ -1,21 +1,55 @@
-var gulp = require( 'gulp' );
+var gulp = require('gulp');
 var less = require('gulp-less');
 var path = require('path');
+var replace = require('gulp-replace')
 var livereload = require('gulp-livereload');
+var _ = require('underscore');
+var template = require('gulp-template');
+var fs = require("fs")
 gulp.task('less', function () {
-  return gulp.src('./src/theme/*.less')
-    .pipe(less({
-      paths: [ path.join(__dirname, 'less', 'includes') ]
-    }))
-    .pipe(gulp.dest('./wp-content/themes/kexie/')).pipe(livereload());
+    return gulp.src('./src/theme/*.less')
+        .pipe(less({
+            paths: [path.join(__dirname, 'less', 'includes')]
+        }))
+        .pipe(gulp.dest('./wp-content/themes/kexie/')).pipe(livereload());
 });
+var tmpl = fs.readFileSync('src/theme/kxheader.html', "utf8");
+var header_config = {
+    list: [{
+        text: "首页",
+        icon: "glyphicon-home"
+    }, {
+        text: "资料",
+        icon: "glyphicon-book"
+    }, {
+        text: "留言板",
+        icon: "glyphicon-blackboard"
+    }, {
+        text: "学长们",
+        icon: "glyphicon-user"
+    }],
+    title: "UESTC-IC科协官方网站",
+}
+gulp.task("injectHeader", function () {
+    return gulp.src('./src/theme/header.php')
+        .pipe(replace(/<!--placeHolderForHeader .+-->/, function (todo) {
+            var choose = new RegExp("[^-<>! ]+");
+            choose = choose.exec(todo.replace("placeHolderForHeader", ""))[0];
+            console.log("choose",choose);
+            header_config.current = choose;         
+            return _.template(tmpl)(header_config);
+        }))
+        .pipe(gulp.dest('./wp-content/themes/kexie/'));
 
-gulp.task('default', function() {
-    livereload.listen({reloadPage:"./wp-content/themes/kexie/header.php"});    
-	gulp.start(["less"]);
-    
 });
-gulp.watch('./src/theme/*', ['default']); 
+gulp.task('default', function () {
+    livereload.listen({
+        reloadPage: "./wp-content/themes/kexie/header.php"
+    });
+    gulp.start(["injectHeader", "less"]);
+
+});
+gulp.watch('./src/theme/*', ['default']);
 //	gulpLoadPlugins = require( 'gulp-load-plugins' ),
 //	p = gulpLoadPlugins(),
 //	src = 'src/',

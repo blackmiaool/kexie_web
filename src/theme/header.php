@@ -46,20 +46,5 @@
 
 		<?php get_sidebar(); ?>
 	</div><!-- .sidebar -->
-    <div id="kx-header">
-    <div class="wrap">
-        <ul>
-            <li><a href="/" class="brand">IC科协</a></li>
-            
-            <li><a href="/" class="item selected"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;首页</a></li>
-            
-            <li><a href="/" class="item "><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;资料</a></li>
-            
-            <li><a href="/" class="item "><span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span>&nbsp;留言板</a></li>
-            
-            <li><a href="/" class="item "><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;学长们</a></li>
-            
-        </ul>
-    </div>
-</div>
+    <!--placeHolderForHeader 首页-->
 	<div id="content" class="site-content">
