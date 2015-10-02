@@ -16,16 +16,17 @@
     "url": "https://github.com/blackmiaool/kexie_web/issues"
   },
   "devDependencies": {
+    "angular-template": "^2.0.7",
+    "fs": "0.0.2",
     "gulp": "~3.9.0",
     "gulp-htmlmin": "~1.1.4",
+    "gulp-inject": "~3.0.0",
     "gulp-jsmin": "~0.1.5",
     "gulp-less": "~3.0.3",
     "gulp-livereload": "^3.8.1",
     "gulp-mini-css": "0.0.3",
     "gulp-replace": "~0.5.4",
-    "gulp-inject": "~3.0.0",
     "gulp-template": "~3.0.0",
-    "fs": "0.0.2",
     "underscore": "~1.8.3"
   }
 }

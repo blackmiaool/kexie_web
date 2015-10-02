@@ -46,19 +46,12 @@
 
 		<?php get_sidebar(); ?>
 	</div><!-- .sidebar -->
-    <div id="kx-header">
+    <div id="kx-header" class="header-home">
     <div class="wrap">
         <ul>
-            <li><a href="/" class="brand">IC科协</a></li>
-            
-            <li><a href="/" class="item selected"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;首页</a></li>
-            
-            <li><a href="/" class="item "><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;资料</a></li>
-            
-            <li><a href="/" class="item "><span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span>&nbsp;留言板</a></li>
-            
-            <li><a href="/" class="item "><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;学长们</a></li>
-            
+            <li><a href="/" class="brand">IC&#x79D1;&#x534F;</a></li>
+            <li><a href="/" class="item selected"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&#xA0;首页</a></li><li><a href="mediawiki/" class="item false"><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&#xA0;资料</a></li><li><a href="mediawiki/" class="item false"><span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span>&#xA0;留言板</a></li><li><a href="mediawiki/" class="item false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&#xA0;学长们</a></li>
+            <li><span class="others"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></span></li>
         </ul>
     </div>
 </div>

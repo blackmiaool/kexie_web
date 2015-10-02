@@ -4,8 +4,9 @@ var path = require('path');
 var replace = require('gulp-replace')
 var livereload = require('gulp-livereload');
 var _ = require('underscore');
-var template = require('gulp-template');
-var fs = require("fs")
+var template = require('angular-template');
+var fs = require("fs");
+
 gulp.task('less', function () {
     return gulp.src('./src/theme/*.less')
         .pipe(less({
@@ -16,17 +17,23 @@ gulp.task('less', function () {
 var tmpl = fs.readFileSync('src/theme/kxheader.html', "utf8");
 var header_config = {
     list: [{
+        name:"header-home",
         text: "首页",
-        icon: "glyphicon-home"
+        icon: "glyphicon-home",
+        href: "/",
     }, {
+        name:"header-wiki",
         text: "资料",
-        icon: "glyphicon-book"
+        icon: "glyphicon-book",
+        href: "mediawiki/",
     }, {
         text: "留言板",
-        icon: "glyphicon-blackboard"
+        icon: "glyphicon-blackboard",
+        href: "mediawiki/",
     }, {
         text: "学长们",
-        icon: "glyphicon-user"
+        icon: "glyphicon-user",
+        href: "mediawiki/",
     }],
     title: "UESTC-IC科协官方网站",
 }
@@ -35,19 +42,27 @@ gulp.task("injectHeader", function () {
         .pipe(replace(/<!--placeHolderForHeader .+-->/, function (todo) {
             var choose = new RegExp("[^-<>! ]+");
             choose = choose.exec(todo.replace("placeHolderForHeader", ""))[0];
-            console.log("choose",choose);
-            header_config.current = choose;         
-            return _.template(tmpl)(header_config);
+            header_config.list.every(function (li) {
+                if (li.text == choose) {
+                    console.log("found!!!")
+                    header_config.current = li;
+                    return false;
+                }
+                return true;
+            })
+            console.log("choose", choose);
+//            header_config.current = choose;
+            return template(tmpl, header_config);
         }))
         .pipe(gulp.dest('./wp-content/themes/kexie/'));
 
 });
 gulp.task('default', function () {
+
+    gulp.start(["injectHeader", "less"]);
     livereload.listen({
         reloadPage: "./wp-content/themes/kexie/header.php"
     });
-    gulp.start(["injectHeader", "less"]);
-
 });
 gulp.watch('./src/theme/*', ['default']);
 //	gulpLoadPlugins = require( 'gulp-load-plugins' ),
