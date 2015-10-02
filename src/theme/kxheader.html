@@ -1,10 +1,9 @@
 <div id="kx-header" class="{{current.name}}">
     <div class="wrap">
         <ul>
-            <li><a href="/" class="brand">IC科协</a></li>
+            <li style="display:none;"><a href="/" class="brand" >IC科协</a></li>
             
             <li ht-repeat="li in list"><a href="{{li.href}}" class="item {{ li.text==current.text && 'selected'}}"><span class="glyphicon {{li.icon}}" aria-hidden="true"></span>&nbsp;{{li.text}}</a></li>
-            <li><span class="others"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></span></li>
         </ul>
     </div>
 </div>

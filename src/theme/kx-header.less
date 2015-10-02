@@ -7,10 +7,6 @@
     }
 }
 
-body.admin-bar {
-    //    padding-top: 30px;
-}
-
 .sidebar#sidebar {
     //    top:0px !important;
     //    position: absolute!important;
@@ -23,38 +19,47 @@ body.admin-bar {
     position: fixed;
     left: 0;
     right: 0;
-    @top: 0px;
-    top: @top;
     margin: auto;
     font-size: 15px;
-    min-width: 660px;
-    @media screen and (max-width: @screen-mb-max) {
-        min-width: 100px;
-        position: static;
-        width: 100%;
-    }
     &.header-home {
-        margin-top: 5px;
-        position: relative;
+        @top: 0px;
+        body.admin-bar & {
+            top: @top+32;
+        }
+        top: @top;
+        height: 30px;
+        background-color: #23282d;
+        & li>a {
+            color: rgba(240, 245, 250, 0.8);
+        }
+        @media screen and (max-width: @screen-mb-max) {
+            margin-top: 5px;
+            position: fixed;
+            min-width: 100px;
+            position: static;
+            width: 100%;
+            & li>a {
+                color: #333;
+            }
+        }
     }
     .wrap {
-        background-color: @brand-primary;
         display: inline-block;
         width: 100%;
-        @splitter: 1px solid darken(@brand-primary, 15%);
+        @splitter: none;
         &>ul {
             overflow: hidden;
+            white-space: nowrap;
             height: 30px;
             margin: 0px;
-            padding-right: 57px;
-            &>li>a {
-                color: white;
+            @media screen and (max-width:@screen-mb-max) {
+                overflow: auto;
             }
             &>li {
                 display: inline-block;
                 border-left: @splitter;
                 margin: 0;
-                padding: 3px 35px;
+                padding: 3px 25px;
                 @media screen and (max-width: @screen-mb-max) {
                     padding: 3px 15px;
                 }
@@ -65,20 +70,20 @@ body.admin-bar {
                 font-size: 18px;
                 line-height: 18px;
             }
-            &>li .item:nth-child(2) {
+            &>li:nth-child(2) {
                 border-left: none;
             }
             &>li:not(:first-child):hover {
-                background: darken(@brand-primary, 10%);
+                background: darken(@brand-primary, 20%);
             }
             @media screen and (max-width:@screen-mb-max) {
-                &>li>a {
-                    color: #333;
-                }
+                background-color: white;
                 &>li:not(:first-child):hover {
+                background: white;
+            }
+                &>li:not(: first-child):hover {
                     background: white;
                 }
-                background-color: white;
                 &>li .others {
                     & span {
                         top: 4px;
@@ -89,11 +94,6 @@ body.admin-bar {
                     margin-right: 10px;
                     right:0px;
                     top:0px;
-                }
-                &>li {
-                    color: #333;
-                    border-left: none;
-                    border-right: none;
                 }
                 &>li .brand:nth-child(1) {
                     width: 30%;
@@ -116,7 +116,6 @@ body.admin-bar {
                     color: @brand-danger;
                     border-bottom: 4px solid @brand-danger;
                 }
-
             }
             //            <span href="http://test.ilwt.science/" rel="home" style="font-size: 130%;"><span style="
             //    color: rgb(255,20,20);font-size:116%;font-weight: normal;
