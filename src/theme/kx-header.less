@@ -1,18 +1,33 @@
 @import "variables.less";
-@import "glyphicons.less";
-.abc {
-    font-size: 10px;
-    .bcd {
-        color: black;
-    }
-}
-
-.sidebar#sidebar {
-    //    top:0px !important;
-    //    position: absolute!important;
-}
-
 #kx-header {
+    @icon-font-name: "glyphicons-halflings-regular";
+    @icon-font-path: "/dist/fonts/";
+    @icon-font-svg-id: "glyphicons_halflingsregular";
+    @font-face {
+        font-family: 'Glyphicons Halflings';
+        src: url('@{icon-font-path}@{icon-font-name}.eot');
+        src: url('@{icon-font-path}@{icon-font-name}.eot?#iefix') format('embedded-opentype'),
+        url('@{icon-font-path}@{icon-font-name}.woff2') format('woff2'),
+        url('@{icon-font-path}@{icon-font-name}.woff') format('woff'),
+        url('@{icon-font-path}@{icon-font-name}.ttf') format('truetype'),
+        url('@{icon-font-path}@{icon-font-name}.svg#@{icon-font-svg-id}') format('svg');
+    }
+    // Catchall baseclass
+    .glyphicon {
+        position: relative;
+        top: 1px;
+        display: inline-block;
+        font-family: 'Glyphicons Halflings';
+        font-style: normal;
+        font-weight: normal;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    .glyphicon-home                   { &:before { content: "\e021"; } }
+    .glyphicon-book                   { &:before { content: "\e043"; } }
+    .glyphicon-blackboard             { &:before { content: "\e218"; } }
+    .glyphicon-user                   { &:before { content: "\e008"; } }
     z-index: 1000;
     display: inline-block;
     text-align: center;
@@ -32,7 +47,13 @@
         & li>a {
             color: rgba(240, 245, 250, 0.8);
         }
+        & li:not(:first-child):hover {
+                background: darken(@brand-primary, 20%);
+        }
         @media screen and (max-width: @screen-mb-max) {
+            & li:not(:first-child):hover {
+                background: white;
+            }
             margin-top: 5px;
             position: fixed;
             min-width: 100px;
@@ -40,6 +61,33 @@
             width: 100%;
             & li>a {
                 color: #333;
+            }
+        }
+    }
+    &.header-wiki {     
+        height: 30px;
+        background-color: #23282d;
+        & li>a {
+            color: rgba(240, 245, 250, 0.8);
+        }
+        
+        @media screen and (max-width: @screen-mb-max) {
+            & li:not(:first-child):hover {
+                background: white;
+            }
+            background-color: white;
+            padding-bottom: 3px;
+            border-bottom: 1px solid #ccc;
+            margin-top: 5px;
+            position: fixed;
+            min-width: 100px;
+            position: static;
+            width: 100%;
+            & li>a {
+                color: #333;
+            }
+            & li>a:hover{
+                text-decoration:none;
             }
         }
     }
@@ -52,7 +100,7 @@
             white-space: nowrap;
             height: 30px;
             margin: 0px;
-            @media screen and (max-width:@screen-mb-max) {
+            @media screen and (max-width: @screen-mb-max) {
                 overflow: auto;
             }
             &>li {
@@ -64,6 +112,11 @@
                     padding: 3px 15px;
                 }
                 cursor: pointer;
+                &>a{
+                    border-bottom: none !important;
+                    outline: 0 !important;
+                    text-decoration:none !important;
+                }
             }
             &>li .brand {
                 border-left: none;
@@ -73,14 +126,12 @@
             &>li:nth-child(2) {
                 border-left: none;
             }
-            &>li:not(:first-child):hover {
-                background: darken(@brand-primary, 20%);
-            }
+            
             @media screen and (max-width:@screen-mb-max) {
                 background-color: white;
-                &>li:not(:first-child):hover {
-                background: white;
-            }
+                &>li:not(: first-child):hover {
+                    background: white;
+                }
                 &>li:not(: first-child):hover {
                     background: white;
                 }

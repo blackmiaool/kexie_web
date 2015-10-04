@@ -27,6 +27,8 @@
     "gulp-mini-css": "0.0.3",
     "gulp-replace": "~0.5.4",
     "gulp-template": "~3.0.0",
-    "underscore": "~1.8.3"
+    "underscore": "~1.8.3",
+    "gulp-shell": "~0.4.3",
+    "less": "~2.5.3"
   }
 }
