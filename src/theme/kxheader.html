@@ -3,7 +3,7 @@
         <ul>
             <li style="display:none;"><a href="/" class="brand" >IC科协</a></li>
             
-            <li ht-repeat="li in list"><a href="{{li.href}}" class="item {{ li.text==current.text && 'selected'}}"><span class="glyphicon {{li.icon}}" aria-hidden="true"></span>&nbsp;{{li.text}}</a></li>
+            <li ht-repeat="li in list"><a href="/{{li.href}}" class="item {{ li.text==current.text && 'selected'}}"><span class="glyphicon {{li.icon}}" aria-hidden="true"></span>&nbsp;{{li.text}}</a></li>
         </ul>
     </div>
 </div>

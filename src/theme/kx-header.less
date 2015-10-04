@@ -24,10 +24,26 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
-    .glyphicon-home                   { &:before { content: "\e021"; } }
-    .glyphicon-book                   { &:before { content: "\e043"; } }
-    .glyphicon-blackboard             { &:before { content: "\e218"; } }
-    .glyphicon-user                   { &:before { content: "\e008"; } }
+    .glyphicon-home {
+        &:before {
+            content: "\e021";
+        }
+    }
+    .glyphicon-book {
+        &:before {
+            content: "\e043";
+        }
+    }
+    .glyphicon-blackboard {
+        &:before {
+            content: "\e218";
+        }
+    }
+    .glyphicon-user {
+        &:before {
+            content: "\e008";
+        }
+    }
     z-index: 1000;
     display: inline-block;
     text-align: center;
@@ -48,10 +64,10 @@
             color: rgba(240, 245, 250, 0.8);
         }
         & li:not(:first-child):hover {
-                background: darken(@brand-primary, 20%);
+            background: darken(@brand-primary, 20%);
         }
         @media screen and (max-width: @screen-mb-max) {
-            & li:not(:first-child):hover {
+            & li:not(: first-child):hover {
                 background: white;
             }
             margin-top: 5px;
@@ -64,15 +80,14 @@
             }
         }
     }
-    &.header-wiki {     
+    &.header-wiki {
         height: 30px;
         background-color: #23282d;
         & li>a {
             color: rgba(240, 245, 250, 0.8);
         }
-        
-        @media screen and (max-width: @screen-mb-max) {
-            & li:not(:first-child):hover {
+        body.mw-mobile-mode & {
+            & li:not(: first-child):hover {
                 background: white;
             }
             background-color: white;
@@ -86,8 +101,12 @@
             & li>a {
                 color: #333;
             }
-            & li>a:hover{
-                text-decoration:none;
+            & li>a:hover {
+                text-decoration: none;
+            }
+            & li .item.selected {
+                color: @brand-danger;
+                border-bottom: 4px solid @brand-danger;
             }
         }
     }
@@ -112,10 +131,9 @@
                     padding: 3px 15px;
                 }
                 cursor: pointer;
-                &>a{
-                    border-bottom: none !important;
+                &>a {
                     outline: 0 !important;
-                    text-decoration:none !important;
+                    text-decoration: none !important;
                 }
             }
             &>li .brand {
@@ -126,7 +144,6 @@
             &>li:nth-child(2) {
                 border-left: none;
             }
-            
             @media screen and (max-width:@screen-mb-max) {
                 background-color: white;
                 &>li:not(: first-child):hover {

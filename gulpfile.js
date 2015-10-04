@@ -34,7 +34,7 @@ gulp.task("injectHeader", function () {
             name: "header-home",
             text: "首页",
             icon: "glyphicon-home",
-            href: "/",
+            href: "",
     }, {
             name: "header-wiki",
             text: "资料",
